@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Grocery shop </title>
+
+    </head>
+
+    <body>
+    <div>
+        <h2>Registration for Grocery shop</h2>
+
+
+        {% if registered %}
+        <strong>Thank you for registering!</strong><br>
+        <a href="/gro_app/">Return to the homepage.</a><br />
+
+        {% else %}
+
+        <strong>register here!</strong><br />
+
+        <form id="user_form" method="post" action="/gro_app/register/" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+    </div>
+    </body>
+</html>
